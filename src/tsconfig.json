@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "module": "es6",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "target": "es5"
+    },
+    "files": [
+      "app.ts",
+      "demo.tsx",
+      "routes.ts",
+      "wrap.tsx"
+    ]
+}
