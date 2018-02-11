@@ -1,14 +1,53 @@
 /* eslint-disable no-magic-numbers */
 import * as React from 'react';
 import { connect } from 'react-redux';
-import * as PropTypes from 'prop-types';
-import chunk from 'lodash.chunk';
+import { chunk } from 'lodash';
 
 /* Invert comments for immutable */
 import { Link, Fragment } from 'redux-little-router';
 // import { ImmutableLink as Link, ImmutableFragment as Fragment } from '../../src';
 
-const styles = require('./demo.css');
+const styles = {
+  gallery: {
+    display: 'flex',
+    flexDirection: 'row' as 'row',
+    paddingTop: '20px'
+  },
+  column: {
+    display: 'flex',
+    flexBasis: '50%',
+    flexDirection: 'column' as 'column',
+    flexWrap: 'wrap' as 'wrap',
+    fontSize: 0
+  },
+  image: {
+    width: '100%'
+  },
+  container: {
+    maxWidth: '1024px',
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: '20px'
+  },
+  tagline: {
+    textAlign: 'center'
+  },
+  secondary: {
+    fontSize: '16px'
+  },
+  primary: {
+    fontSize: '36px'
+  },
+  nav: {
+    display: 'flex',
+    justifyContent: 'center' as 'center',
+    paddingBottom: '20px'
+  },
+  noMatchImage: {
+    maxWidth: '100%'
+  }
+};
 
 const COLUMN_COUNT = 2;
 
@@ -27,41 +66,39 @@ interface GalleryProps {
   columns: number;
 };
 
-const Gallery: React.SFC<GalleryProps> = ({ images, columns, ...rest }) =>
-  <div className={styles.gallery} {...rest}>
+const Gallery: React.SFC<GalleryProps> = ({ images, columns, ...rest }) => {
+
+  return (
+    <div style={styles.gallery} {...rest}>
     {columnize(images, columns).map((column, index) =>
-      <div key={index} className={styles.column}>
+      <div key={index} style={styles.column}>
         {column.map((image: any, imageIndex: number) =>
-          <img key={imageIndex} className={styles.image} src={image} />
+          <img key={imageIndex} style={styles.image} src={image} />
         )}
       </div>
     )}
-  </div>
-  ;
-
-Gallery.propTypes = {
-  columns: PropTypes.number,
-  images: PropTypes.arrayOf(PropTypes.string)
+    </div>
+  );
 };
 
 // eslint-disable-next-line react/no-multi-comp
 const Demo: React.SFC<{ location: any }> = ({ location }) => {
   const demoRoutes = ['/cheese', '/cat', '/dog', '/hipster'];
   return (
-    <div className={styles.container}>
-      <Fragment forRoute="/" className={styles.container}>
+    <div style={styles.container}>
+      <Fragment forRoute="/" style={styles.container}>
         <div>
-          <h1 className={styles.tagline}>
-            <span className={styles.secondary}>A Compendium of</span>
+          <h1 style={styles.tagline}>
+            <span style={styles.secondary}>A Compendium of</span>
             <br />
-            <span className={styles.primary}>Ipsums and GIFs</span>
+            <span style={styles.primary}>Ipsums and GIFs</span>
           </h1>
 
-          <div className={styles.nav}>
+          <div style={styles.nav}>
             <Link href={{ pathname: '/cheese', query: { is: 'cheese' } }}>
               Cheese
             </Link>
-            <Link href="/dog">Dog</Link>
+            <Link href="/dog" style={{ color: 'red' }}>Dog</Link>
             <Link href="/cat?is=cat">Cat</Link>
             <Link href="/hipster">Hipster</Link>
             <Link
@@ -76,7 +113,7 @@ const Demo: React.SFC<{ location: any }> = ({ location }) => {
             </Link>
           </div>
 
-          <div className={styles.panes}>
+          <div>
             {demoRoutes.map(route =>
               <Fragment key={route} forRoute={route}>
                 <div>
@@ -101,7 +138,7 @@ const Demo: React.SFC<{ location: any }> = ({ location }) => {
               <h2>FOUR O'FOUR</h2>
               <p>Looks like you found something that doesn't exist!</p>
               <img
-                className={styles.noMatchImage}
+                style={styles.noMatchImage}
                 src="http://i1.kym-cdn.com/photos/images/original/001/018/866/e44.png"
               />
             </div>
@@ -110,10 +147,6 @@ const Demo: React.SFC<{ location: any }> = ({ location }) => {
       </Fragment>
     </div>
   );
-};
-
-Demo.propTypes = {
-  location: PropTypes.object
 };
 
 const mapStateToProps = (state: any) => ({

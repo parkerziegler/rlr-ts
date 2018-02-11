@@ -1,6 +1,3 @@
-import 'normalize.css/normalize.css';
-import './global.css';
-
 import { render } from 'react-dom';
 
 /* Invert comments for immutable */
@@ -29,7 +26,7 @@ const store = createStore(
   compose(
     enhancer,
     applyMiddleware(middleware),
-    (window as any).devToolsExtension ? (window as any).devToolsExtension() : f => f
+    (window as any).devToolsExtension ? (window as any).devToolsExtension() : (f: any) => f
   )
 );
 
