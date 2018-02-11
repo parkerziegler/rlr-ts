@@ -41,7 +41,7 @@ const styles = {
   },
   nav: {
     display: 'flex',
-    justifyContent: 'center' as 'center',
+    justifyContent: 'space-around' as 'space-around',
     paddingBottom: '20px'
   },
   noMatchImage: {
