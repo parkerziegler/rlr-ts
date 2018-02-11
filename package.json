@@ -5,22 +5,27 @@
   "main": "src/app.ts",
   "author": "Parker Ziegler",
   "license": "MIT",
+  "scripts": {
+    "start:dev": "webpack-dev-server",
+    "build": "webpack"
+  },
   "dependencies": {
-    "@types/react": "^16.0.36",
+    "@types/lodash": "^4.14.102",
     "@types/react-dom": "^16.0.3",
     "@types/react-redux": "^5.0.14",
-    "@types/redux": "^3.6.0",
-    "lodash.chunk": "^4.2.0",
+    "lodash": "^4.17.5",
     "normalize.css": "^7.0.0",
-    "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-little-router": "^15.0.0"
   },
   "devDependencies": {
-    "awesome-typescript-loader": "^3.4.1",
     "source-map-loader": "^0.2.3",
-    "typescript": "^2.7.1"
+    "ts-loader": "^3.5.0",
+    "typescript": "2.4.2",
+    "webpack": "^3.11.0",
+    "webpack-dev-server": "^2.11.1"
   }
 }
