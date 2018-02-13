@@ -13,6 +13,7 @@
     "@types/lodash": "^4.14.102",
     "@types/react-dom": "^16.0.3",
     "@types/react-redux": "^5.0.14",
+    "immutable": "^3.8.2",
     "lodash": "^4.17.5",
     "normalize.css": "^7.0.0",
     "react": "^16.2.0",
