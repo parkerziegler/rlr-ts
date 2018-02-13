@@ -1,13 +1,13 @@
 import { render } from 'react-dom';
 
 /* Invert comments for immutable */
-import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
-import { routerForBrowser, initializeCurrentLocation, Location } from 'redux-little-router';
+// import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+// import { routerForBrowser, initializeCurrentLocation, Location } from 'redux-little-router';
 import { immutableRouterForBrowser } from 'redux-little-router/es/immutable';
-// import { createStore, compose, applyMiddleware } from 'redux';
-// import { combineReducers } from 'redux-immutable';
+import { initializeCurrentLocation } from 'redux-little-router';
+import { createStore, compose, applyMiddleware } from 'redux';
+import { combineReducers } from 'redux-immutable';
 import { Map, fromJS } from 'immutable';
-// import { immutableRouterForBrowser, initializeCurrentLocation } from '../../src';
 
 import routes from './routes';
 import wrap from './wrap';

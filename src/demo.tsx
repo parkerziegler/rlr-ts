@@ -151,8 +151,8 @@ const Demo: React.SFC<{ location: any }> = ({ location }) => {
 
 const mapStateToProps = (state: any) => ({
   /* Invert comments for immutable */
-  location: state.router
-  // location: state.get('router').toJS()
+  // location: state.router
+  location: state.get('router').toJS()
 });
 
 export default connect(mapStateToProps)(Demo);
