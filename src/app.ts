@@ -2,10 +2,10 @@ import { render } from 'react-dom';
 
 /* Invert comments for immutable */
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
-import { routerForBrowser, initializeCurrentLocation, Location } from 'redux-little-router';
+import { routerForBrowser, initializeCurrentLocation, Location, immutableRouterForBrowser } from 'redux-little-router';
 // import { createStore, compose, applyMiddleware } from 'redux';
 // import { combineReducers } from 'redux-immutable';
-// import { Map, fromJS } from 'immutable';
+import { Map, fromJS } from 'immutable';
 // import { immutableRouterForBrowser, initializeCurrentLocation } from '../../src';
 
 import routes from './routes';
@@ -13,10 +13,10 @@ import wrap from './wrap';
 import Demo from './demo';
 
 /* Invert comments for immutable */
-const { reducer, enhancer, middleware } = routerForBrowser({ routes });
-const initialState = (window as any).__INITIAL_STATE || {};
-// const { reducer, enhancer, middleware } = immutableRouterForBrowser({ routes });
-// const initialState = window.__INITIAL_STATE ? fromJS(window.__INITIAL_STATE) : Map();
+// const { reducer, enhancer, middleware } = routerForBrowser({ routes });
+// const initialState = (window as any).__INITIAL_STATE || {};
+const { reducer, enhancer, middleware } = immutableRouterForBrowser({ routes });
+const initialState = (window as any).__INITIAL_STATE ? fromJS((window as any).__INITIAL_STATE) : Map();
 
 const store = createStore(
   combineReducers({ router: reducer }),
