@@ -5,7 +5,7 @@ import { chunk } from 'lodash';
 
 /* Invert comments for immutable */
 // import { Link, Fragment } from 'redux-little-router';
-import { ImmutableLink as Link, ImmutableFragment as Fragment } from 'redux-little-router';
+import { ImmutableLink as Link, ImmutableFragment as Fragment } from 'redux-little-router/es/immutable';
 
 const styles = {
   gallery: {

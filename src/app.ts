@@ -2,7 +2,8 @@ import { render } from 'react-dom';
 
 /* Invert comments for immutable */
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
-import { routerForBrowser, initializeCurrentLocation, Location, immutableRouterForBrowser } from 'redux-little-router';
+import { routerForBrowser, initializeCurrentLocation, Location } from 'redux-little-router';
+import { immutableRouterForBrowser } from 'redux-little-router/es/immutable';
 // import { createStore, compose, applyMiddleware } from 'redux';
 // import { combineReducers } from 'redux-immutable';
 import { Map, fromJS } from 'immutable';
@@ -31,8 +32,8 @@ const store = createStore(
 );
 
 /* Invert comments for immutable */
-const initialLocation: Location = store.getState().router;
-// const initialLocation = store.getState().get('router').toJS();
+// const initialLocation: Location = store.getState().router;
+const initialLocation = store.getState().get('router').toJS();
 
 if (initialLocation) {
   store.dispatch(initializeCurrentLocation(initialLocation));
