@@ -1,4 +1,6 @@
-export default {
+import { Routes } from 'redux-little-router';
+
+const routes: Routes = {
   '/': {
     title: 'Home'
   },
@@ -124,3 +126,5 @@ export default {
     }
   }
 };
+
+export default routes;
