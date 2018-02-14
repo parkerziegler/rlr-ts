@@ -4383,10 +4383,10 @@ var react_dom_1 = __webpack_require__(59);
 /* Invert comments for immutable */
 var redux_1 = __webpack_require__(25);
 var redux_little_router_1 = __webpack_require__(30);
+// import { immutableRouterForBrowser } from 'redux-little-router/es/immutable';
 // import { createStore, compose, applyMiddleware } from 'redux';
 // import { combineReducers } from 'redux-immutable';
 // import { Map, fromJS } from 'immutable';
-// import { immutableRouterForBrowser, initializeCurrentLocation } from '../../src';
 var routes_1 = __webpack_require__(129);
 var wrap_1 = __webpack_require__(130);
 var demo_1 = __webpack_require__(146);
@@ -4394,7 +4394,7 @@ var demo_1 = __webpack_require__(146);
 var _a = redux_little_router_1.routerForBrowser({ routes: routes_1.default }), reducer = _a.reducer, enhancer = _a.enhancer, middleware = _a.middleware;
 var initialState = window.__INITIAL_STATE || {};
 // const { reducer, enhancer, middleware } = immutableRouterForBrowser({ routes });
-// const initialState = window.__INITIAL_STATE ? fromJS(window.__INITIAL_STATE) : Map();
+// const initialState = (window as any).__INITIAL_STATE ? fromJS((window as any).__INITIAL_STATE) : Map();
 var store = redux_1.createStore(redux_1.combineReducers({ router: reducer }), 
 // If this is a server render, we grab the
 // initial state the hbs template inserted
@@ -9706,7 +9706,7 @@ function compose() {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = {
+var routes = {
     '/': {
         title: 'Home'
     },
@@ -9758,6 +9758,7 @@ exports.default = {
         }
     }
 };
+exports.default = routes;
 
 
 /***/ }),
@@ -11299,7 +11300,7 @@ var react_redux_1 = __webpack_require__(51);
 var lodash_1 = __webpack_require__(147);
 /* Invert comments for immutable */
 var redux_little_router_1 = __webpack_require__(30);
-// import { ImmutableLink as Link, ImmutableFragment as Fragment } from '../../src';
+// import { ImmutableLink as Link, ImmutableFragment as Fragment } from 'redux-little-router';
 var styles = {
     gallery: {
         display: 'flex',
